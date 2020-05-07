@@ -1,6 +1,6 @@
 var fs = require("fs");
 
-function contentChanger(values, fileContent){
+function margeValues(values, fileContent){
     for(var key in values){
         fileContent = fileContent.replace(`{{${key}}}`,values[key]);
     }
@@ -8,8 +8,10 @@ function contentChanger(values, fileContent){
 }
 
 function vew(tamplate, values, response){
-    var fileContent = fs.readFileSync(`./view/component/${tamplate}.html`,'utf8');
-    fileContent = contentChanger(values,fileContent);
+    var fileContent = fs.readFileSync(`./view/${tamplate}.html`,"utf8");
+    // Insert value into the content
+    fileContent = margeValues(values,fileContent);
+    // Write out the cntents to the response
     response.write(fileContent);
 }
 

@@ -1,0 +1,21 @@
+<img src="http://i.imgur.com/VKKm0pn.png" alt="Magnifying Glass" id="searchIcon">
+
+<form action="/" method="POST">
+    <input type="text" placeholder="Enter a Treehouse username" id="username" name="username" autocomplete="off">
+    <div class="suggestions">
+        <ul>
+            <li>
+                <a href="/chalkers">Chalkers</a>
+            </li>
+        </ul>
+    </div>
+    <input type="submit" value="search" class="button">
+</form>
+
+<script>
+    let input = document.getElementById("username");
+    let suggestions = document.querySelectorAll(".suggestions");
+    input.addEventListener("click",() => {
+        suggestions[0].style.display = "block";
+    })
+</script>
